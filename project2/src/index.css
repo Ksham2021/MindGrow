@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  body {
+    @apply min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900;
+  }
+
+  :root[class~="dark"] body {
+    @apply bg-gradient-to-br from-blue-950 via-blue-900 to-gray-900;
+  }
+}
+
+.nav-link {
+  @apply flex items-center gap-2 px-4 py-2 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors;
+}
+
+.nav-link.active {
+  @apply text-white bg-white/10;
+}
+
+.gaming-card {
+  @apply relative overflow-hidden rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20 shadow-xl 
+         hover:shadow-2xl transition-all duration-300 dark:bg-gray-800/30;
+}
+
+.gaming-gradient {
+  @apply bg-gradient-to-r from-blue-500 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent;
+}
+
+.gaming-button {
+  @apply gaming-card hover:scale-105 transition-transform cursor-pointer;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.neon-border {
+  @apply border-2 border-transparent bg-gradient-to-r from-blue-500 via-violet-500 to-fuchsia-500 
+         dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  mask: 
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
